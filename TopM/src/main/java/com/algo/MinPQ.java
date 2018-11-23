@@ -1,4 +1,4 @@
-package com.algo.exercise;
+package com.algo;
 
 /**
  * Created by hui_stone on 2018/4/1 0001.
