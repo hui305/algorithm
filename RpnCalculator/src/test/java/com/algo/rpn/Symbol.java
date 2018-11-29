@@ -14,5 +14,13 @@ public enum Symbol {
         this.operator = operator;
     }
 
+    public static void main(String[] args) {
+
+        String[] ss = new String[10];
+        int[] nums = new int[10];
+        System.out.println(ss[0]);
+
+        Thread t = new Thread();
+    }
 
 }

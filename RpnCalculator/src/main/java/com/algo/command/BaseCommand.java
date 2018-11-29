@@ -1,30 +1,24 @@
 package com.algo.command;
 
-import com.algo.store.Record;
-import com.algo.store.Store;
+import com.algo.excepiton.CalculatorException;
+import com.algo.store.RpnStore;
+
+import java.math.BigDecimal;
 
 /**
  * Created by hui_stone on 2018/11/21 0021.
  */
-public class BaseCommand implements Command {
+public class BaseCommand extends AbstractCommand {
 
-    private Store store;
+    private BigDecimal element = BigDecimal.ZERO;
 
-    public BaseCommand(Store store) {
-        this.store = store;
+    public BaseCommand(BigDecimal element, RpnStore store) {
+        this.element = element;
+        setStore(store);
     }
 
-    public void execute(Record record) {
-
-        store.putValue(record.getParams()[0]);
-        store.addOptRecord(record);
+    @Override
+    protected void operate() {
+        getStore().getNumStack().push(element);
     }
-
-//    private Record getRecord(String strValue){
-//
-//        List<Double> params = new ArrayList<Double>();
-//        params.add(Double.parseDouble(strValue));
-//        return new Record(params,"base");
-//    }
-
 }

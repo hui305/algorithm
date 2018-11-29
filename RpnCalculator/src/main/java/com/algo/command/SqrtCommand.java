@@ -1,27 +1,25 @@
 package com.algo.command;
 
-import com.algo.store.Record;
-import com.algo.store.Store;
+import com.algo.factory.Constant;
+import com.algo.store.RpnStore;
+
+import java.math.BigDecimal;
 
 /**
  * Created by hui_stone on 2018/11/21 0021.
  */
-public class SqrtCommand implements Command {
+public class SqrtCommand extends UnitaryCommand {
 
-    private Store store;
-
-    public SqrtCommand(Store store) {
-        this.store = store;
+    public SqrtCommand(RpnStore store) {
+        setStore(store);
     }
 
     @Override
-    public void execute(Record record) {
-
-        Double value = store.popValue();
-        record.setParams(new Double[]{value});
-        Double result = Math.sqrt(value);
-        store.putValue(result);
-        System.out.println(record);
-        store.addOptRecord(record);
+    protected void doCalculation() {
+        if (operand.compareTo(BigDecimal.ZERO) < 0) {
+//            getCalculator().getStack().push(operand);
+        }
+        Double sqrt = Math.sqrt(operand.doubleValue());
+        getStore().putValue(new BigDecimal(sqrt, Constant.MC));
     }
 }

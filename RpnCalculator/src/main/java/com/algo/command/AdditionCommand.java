@@ -1,28 +1,29 @@
 package com.algo.command;
 
-import com.algo.store.Record;
-import com.algo.store.Store;
+import com.algo.excepiton.CalculatorException;
+import com.algo.factory.Constant;
+import com.algo.store.RpnStore;
+
+import java.math.BigDecimal;
 
 /**
  * Created by hui_stone on 2018/11/21 0021.
  */
 public class AdditionCommand extends BinaryCommand {
 
-    private final Store store;
-
-    public AdditionCommand(Store store) {
-        this.store = store;
+    public AdditionCommand(RpnStore store) {
+        setStore(store);
     }
 
     @Override
-    public void execute(Record record) {
-
-       Double second = store.popValue();
-       Double first = store.popValue();
-       Double result = Double.sum(first,second);
-       record.setParams(new Double[]{first,second});
-       System.out.println(record);
-       store.putValue(result);
-       store.addOptRecord(record);
+    protected void doCalculation() {
+        getStore().putValue(first.add(second, Constant.MC));
     }
+
+    @Override
+    public String toString() {
+        return "+";
+    }
+
+
 }
