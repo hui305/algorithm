@@ -35,19 +35,4 @@ public enum Operator {
                 '}';
     }
 
-    //迭代查找，效率低
-//    public static OperatorsEnum fromString(String userEntered) {
-//        for(OperatorsEnum operator : OperatorsEnum.values()) {
-//            if (operator.getCode().equalsIgnoreCase(userEntered)) {
-//                return operator;
-//            }
-//        }
-//        throw new IllegalArgumentException("userEntered cannot be " + userEntered);
-//    }
-
-    //用hashmap KV
-    public static void main(String[] args) {
-
-        System.out.println(operatorMap.get("-"));
-    }
 }
