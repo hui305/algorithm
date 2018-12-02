@@ -15,7 +15,6 @@ public abstract  class AbstractCommand implements Command {
     private RpnStore store;
     private Stack<BigDecimal> before = new Stack<BigDecimal>();
 
-    @Override
     public void execute() throws CalculatorException {
         before = (Stack<BigDecimal>)store.getNumStack().clone();
         operate();
@@ -27,7 +26,6 @@ public abstract  class AbstractCommand implements Command {
 
     protected abstract void operate() throws  CalculatorException;
 
-    @Override
     public void undo() {
         store.setNumStack((Stack<BigDecimal>)before.clone());
     }
