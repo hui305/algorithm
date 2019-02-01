@@ -11,6 +11,7 @@
         <module>RpnCalculator</module>
         <module>TopM</module>
         <module>Fibonacci</module>
+        <module>sicp</module>
     </modules>
 
     <packaging>pom</packaging>
