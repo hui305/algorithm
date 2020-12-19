@@ -19,15 +19,22 @@ public class SelectionSort {
                 if(a[i] < a[min])
                     min = i;
             }
-            exch(a,min,j);
+            if(min != j){ //如果使用异或，不能地址相同
+                exch(a,min,j);
+            }
         }
     }
 
     private static void exch(int[] a,int i,int j){
-        int temp;
-        temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
+//        int temp;
+//        temp = a[i];
+//        a[i] = a[j];
+//        a[j] = temp;
+//        if(a[i] == a[j])
+//            return;
+        a[i] = a[i]^a[j];
+        a[j] = a[i]^a[j];
+        a[i] = a[i]^a[j];
     }
 
     public static void main(String[] args) {
