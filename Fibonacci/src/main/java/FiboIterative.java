@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by hui_stone on 2018/12/2 0002.
  */
@@ -18,7 +20,23 @@ public class FiboIterative {
 
     public static void main(String[] args) {
 
-        int n = 9;
-        System.out.println(fib(9));
+//        int n = 9;
+//        System.out.println(fib(9));
+        ArrayList<Integer> result = new ArrayList<>();
+        int i =2;
+        int number = 11;
+        while(i <= number){
+            if(number % i == 0){
+                result.add(i);
+                number /= i;
+                i = 2;
+                continue;
+            }
+            ++i;
+        }
+        System.out.println(result);
+//        System.out.println(number/2);
+//        System.out.println(number%2);
+
     }
 }

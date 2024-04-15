@@ -13,6 +13,7 @@
         <module>Fibonacci</module>
         <module>sicp</module>
         <module>LeetCode</module>
+        <module>route</module>
     </modules>
 
     <packaging>pom</packaging>

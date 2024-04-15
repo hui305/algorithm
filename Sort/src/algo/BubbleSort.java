@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 /**
  * Created by hui_stone on 2020/10/24 0024.
+ * 逐个比较，交换。
+ * 优点：算法简单，易于理解。
  */
 public class BubbleSort {
 
