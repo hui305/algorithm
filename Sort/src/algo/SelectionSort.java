@@ -13,15 +13,26 @@ public class SelectionSort {
 
     public static void sort(int[] a){
 
-        for(int j = 0;j<a.length;j++){
-            int min = j;
-            for(int i = j+1;i<a.length;i++){//内层循环从j+1开始
-                if(a[i] < a[min])
-                    min = i;
+        int len = a.length;
+        for(int i = 0;i<len-1;i++){//外层只负责交换，交换一次，排好序一次，靠左都是排好序的。
+            int min = i;//首先，假设最小的值在首位
+            for(int j = i+1;j<=len-1;j++){//内层循环从i+1开始
+                if(a[j] < a[min])
+                    min = j;
             }
-            if(min != j){ //如果使用异或，不能地址相同
-                exch(a,min,j);
+            if(min != i){ //如果使用异或，不能地址相同
+                exch(a,min,i);
             }
+            System.out.print("第" + (i + 1) + "次排序结果：");
+            for(int y = 0; y < a.length; y++){
+                System.out.print(a[y] + "\t");
+            }
+            System.out.println("");
+        }
+
+        System.out.print("最终排序结果：");
+        for(int i = 0; i< a.length; i++){
+            System.out.print(a[i] + "\t");
         }
     }
 
@@ -38,8 +49,8 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        int a[] ={9,5,8,7,4};
-        SelectionSort.sort(a);
-        Arrays.stream(a).forEach((i)-> System.out.print(" "+i));
+        int[] array = {5,6,3,4,1,8,2,7};
+        SelectionSort.sort(array);
+//        Arrays.stream(a).forEach((i)-> System.out.print(" "+i));
     }
 }
